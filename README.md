@@ -1,8 +1,8 @@
-! Managing Dotfiles
+# Managing Dotfiles
 
 Taken from [this](https://www.atlassian.com/git/tutorials/dotfiles) tutorial
 
-!! Setup:
+## Setup:
 
 ```bash
 git init --bare $HOME/.dotfiles
@@ -16,7 +16,7 @@ So instead of using `git`, you add any file in your home directory with `dotfile
 
 Its titled `.dotfile-install.sh`. Run it in `$HOME`. Read below for instructions on how to do it maually.
 
-!! Pulling To a New Computer
+## Pulling To a New Computer
 
 Clone to new computer
 
