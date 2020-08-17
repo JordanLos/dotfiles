@@ -1,17 +1,16 @@
 #! /bin/bash
 DOTFILES="dotfiles"
-ls $HOME/.$DOTFILES
-#git clone --bare https://bitbucket.org/durdn/cfg.git $HOME/.$DOTFILES
-#function config {
-     #/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
-   #}
- #mkdir -p .config-backup
- #config checkout
- #if [ $? = 0 ]; then
-     #echo "Checked out config.";
-       #else
-             #echo "Backing up pre-existing dot files.";
-                 #config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
- #fi;
- #config checkout
- #config config status.showUntrackedFiles no
+git clone --bare git@github.com:JordanLos/dotfiles.git $HOME/.$DOTFILES
+function dotfiles {
+     /usr/bin/git --git-dir=$HOME/.$DOTFILES/ --work-tree=$HOME $@
+}
+mkdir -p .$DOTFILES-backup
+$DOTFILES checkout
+if [ $? = 0 ]; then
+   echo "Checked out $DOTFILES.";
+   else
+     echo "Backing up pre-existing dot files.";
+         $DOTFILES checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .$DOTFILES-backup/{}
+fi;
+$DOTFILES checkout
+$DOTFILES config status.showUntrackedFiles no
