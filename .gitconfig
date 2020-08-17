@@ -1,0 +1,30 @@
+[user]
+	name = jordan
+	email = jordan.los@drivewyze.com
+[credential]
+	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe
+
+[alias]
+	co = checkout
+	s = status --short --branch
+	recent = "!git reflog --date=iso | egrep -io '([[:digit:]-]{    10}).*moving from ([^[:space:]]+)' | awk '{ print $1 \" \" $7     }' | awk ' !x[$2]++' | head -n ${1:-5} #"
+	br = branch
+	logtree = log --graph --oneline --decorate --all
+	as = !git add . && git status
+	ap = !git add -p
+	cm = commit -m
+	ps = push
+  pl = pull
+	aliases = !git config --get-regexp alias
+
+[core]
+    pager = delta
+
+[delta]
+    plus-color = "#012800"
+    minus-color = "#340001"
+    syntax-theme = Monokai Extended
+
+[interactive]
+    diffFilter = delta --color-only
+
