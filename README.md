@@ -33,7 +33,7 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 Checkout the content from the abre repo
 
-> :warning This might fail because it will overwrite existing dotfiles. Either back them up or just erase them
+> :warning: This might fail because it will overwrite existing dotfiles. Either back them up or just erase them
 
 ```bash
 dotfiles checkout
